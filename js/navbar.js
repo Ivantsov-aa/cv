@@ -1,31 +1,20 @@
-(function () {
-    const navList = ['Home', 'About', 'Resume', 'Contacts'];
+const links = [
+    { href: '#home', icon: 'bi-house-door', value: 'Home' },
+    { href: '#about', icon: 'bi-person', value: 'About' },
+    { href: '#resume', icon: 'bi-book', value: 'Resume' },
+    { href: '#contacts', icon: 'bi-envelope-open', value: 'Contacts' },
+];
 
-    let ul = document.createElement('ul');
-    document.getElementById('navbar').appendChild(ul);
+const $navbar = document.querySelector('#navbar');
+const $navbarUl = document.createElement('ul');
+$navbar.append($navbarUl);
 
-    navList.forEach(el => {
-        let li = document.createElement('li');
-        li.setAttribute('class', 'nav-link scrollto');
-        ul.appendChild(li);
+links.forEach(link => {
+    let html = navigation(link);
 
-        let a = document.createElement('a');
-        a.setAttribute('class', 'link');
-        a.href = '#';
-        li.appendChild(a);
+    $navbarUl.insertAdjacentHTML('beforeend', html);
+});
 
-        let i = document.createElement('i');
-        a.appendChild(i);
-
-        const menuIcons = ['bi bi-house-door', 'bi bi-person', 'bi bi-file-person', 'bi bi-telephone-fill'];
-
-        menuIcons.forEach(elem => {
-            i.className = i.innerHTML + elem;
-        });
-        
-        let span = document.createElement('span');
-        a.appendChild(span);
-
-        span.innerHTML = span.innerHTML + el;
-    });
-})();
+function navigation(link) {
+    return `<li><a href="${link.href}" class="nav-link scrollto"><i class="bi ${link.icon}"></i><span>${link.value}</span></a></li>`
+};
