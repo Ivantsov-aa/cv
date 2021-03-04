@@ -1,6 +1,7 @@
 body {
     color: #272829;
     background-color: #f5f8fd;
+    height: 3000px;
 }
 
 #header {
@@ -59,6 +60,16 @@ body {
     .active i,
     li:hover>a i {
         color: #149ddd;
+    }
+}
+
+.content {
+    .row {
+        img {
+            height: 300px;
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba($color: #000, $alpha: .5);
+        }
     }
 }
 
