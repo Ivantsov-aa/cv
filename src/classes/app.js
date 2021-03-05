@@ -24,7 +24,7 @@ export class Application {
         let mobileNavigationBtnScroll = document.createElement('i');
         mobileNavigationBtnScroll.className = 'back-to-top d-flex align-items-center justify-content-center bi bi-arrow-up-short';
 
-        mobileNavigationBtnScroll.onclick = () => {
+        mobileNavigationBtnScroll.click = () => {
             window.scrollTo(pageYOffset, 0);
         }
 
