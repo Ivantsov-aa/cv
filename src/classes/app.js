@@ -24,14 +24,17 @@ export class Application {
         let mobileNavigationBtnScroll = document.createElement('i');
         mobileNavigationBtnScroll.className = 'back-to-top d-flex align-items-center justify-content-center bi bi-arrow-up-short';
 
-        mobileNavigationBtnScroll.click = () => {
-            window.scrollTo(pageYOffset, 0);
-        }
+        mobileNavigationBtnScroll.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth',
+            });
+        })
 
         window.addEventListener('scroll', () => {
             if(window.pageYOffset > 100) {
                 mobileNavigationBtnScroll.classList.add('active');
-            } else if(window.pageYOffset < 100) {
+            } else {
                 mobileNavigationBtnScroll.classList.remove('active');
             }
         })
